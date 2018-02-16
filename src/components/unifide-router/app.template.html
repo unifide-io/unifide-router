@@ -1,0 +1,72 @@
+<style>
+
+  :host{
+    display: block;
+    margin: 0;
+    font-family: 'Nunito';
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height:100vh;
+    width:100vw;
+  }
+
+  app-header {
+    display: block;
+    @apply --layout-fixed-top;
+    color: #fff;
+    background-color:#f44336;
+  }
+  a {
+    color: #fff;
+  }
+  iron-pages{
+    padding-top: 64px;
+  }
+  .centered-container {
+    margin-top: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .landing-layout {
+    margin-top: 64px;
+    display: block;
+  }
+  .unifideLandingLogo{
+    width: 320px;
+    height: auto;
+  }
+
+</style>
+<app-drawer-layout>
+  <app-header-layout>
+    <app-header reveals>
+      <app-toolbar>
+        <div main-title>Unifide</div>
+        <a href="/login"><paper-icon-button icon="power-settings-new"></paper-icon-button></a>
+      </app-toolbar>
+    </app-header>
+    <div class="landing-layout">
+      <div>
+        <img src="[[unifideLogo]]" class="unifideLandingLogo">
+        <h1>Unifide</h1>
+        <unifide-landing-slogan landing-slogan="Browse. Meet. Chat. Learn."></unifide-landing-slogan>
+        <unifide-landing-social margin-top="48px"
+                                margin-bottom=""
+                                facebook="http://facebook.com/unifide"
+                                twitter="http://twitter.com/unifide"
+                                instagram="http://instagr.am/unifide"
+                                github="http://github.com/unifide-io"
+                                youtube="https://www.youtube.com/channel/UCozPZb3HDV959i-ygcQaNAw">
+      </div>
+
+      <unifide-landing-services></unifide-landing-services>
+      <unifide-landing-photos></unifide-landing-photos>
+      <unifide-landing-about></unifide-landing-about>
+      <unifide-landing-centerfold></unifide-landing-centerfold>
+      <unifide-landing-footer></unifide-landing-footer>
+    </div>
+  </app-header-layout>
+
+</app-drawer-layout>

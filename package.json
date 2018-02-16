@@ -1,5 +1,5 @@
 {
-  "name": "polymer3-typescript",
+  "name": "unifide-router",
   "version": "0.1.0",
   "author": {
     "name": "Paolo Ferretti",
@@ -15,7 +15,10 @@
   },
   "dependencies": {
     "@polymer/polymer": "next",
-    "@webcomponents/webcomponentsjs": "1.0.14"
+    "@webcomponents/webcomponentsjs": "1.0.14",
+    "@polymer/app-layout": "3.0.0-pre.1",
+    "@polymer/app-route": "3.0.0-pre.1",
+    "@polymer/iron-icons": "3.0.0-pre.1"
   },
   "devDependencies": {
     "clean-webpack-plugin": "0.1.17",
