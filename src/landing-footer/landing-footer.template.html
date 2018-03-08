@@ -1,0 +1,119 @@
+<style>
+  :host{
+    display: block;
+    color:#fff;
+    font-family: 'Nunito';
+    background-color: rgba(36, 41, 47, 1);
+    padding-top: 32px;
+    padding-bottom: 16px;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+
+  }
+
+  :host .centered-container {
+    display: block;
+    margin-top: 40px;
+    max-width: 588px;
+    height:272px;
+    margin: 0 auto;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 2s; /* Firefox < 16 */
+      -ms-animation: fadein 2s; /* Internet Explorer */
+       -o-animation: fadein 2s; /* Opera < 12.1 */
+          animation: fadein 2s;
+  }
+  :host a{
+    color: #fff;
+  }
+
+  :host a iron-icon{
+    width:32px;
+    height:auto;
+    color:#fff;
+    margin:8px;
+  }
+  :host .footer-social{
+    margin-bottom:48px;
+  }
+  :host .unifide-contact{
+    display:inline-block;
+    width:300px;
+    height:256px;
+    margin:0;
+float:left;
+  }
+  :host unifide-landing-logo{
+    display: inline-block;
+    max-width: 128px;
+
+
+  }
+  :host .unifide-name {
+    display: inline-block;
+    font-size: 64px;
+    max-width: 256px;
+    color: #fff;
+    line-height: 64px;
+    margin: 26px 0 18px 0;
+    vertical-align: top;
+  }
+
+  .unifideLandingLogo{
+    background-size: cover;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/unifide-app.appspot.com/o/unifide-landing%2Fimg%2Funifide-logo.png?alt=media&token=42d237aa-5d6d-48c5-8065-a1f866c3ddb4');
+    display: inline-block;
+    width: 256px;
+    height: 256px;
+    margin: 0 32px 0 0;
+    float:left;
+
+  }
+  .copyright{
+    float:left;
+  }
+  .recruit{
+    margin: 30px 0 0;
+  }
+  .recruit paper-button{
+    background-color: #f44336;
+
+  }
+  @media(max-width: 799px) {
+    .centered-container{
+      height: inherit;
+      text-align: center;
+    }
+    .unifide-contact{
+      width: 100%;
+    }
+    .unifideLandingLogo{
+      float:none;
+      margin: auto 0;
+    }
+    .copyright{
+      margin-left:8px;
+    }
+  }
+</style>
+<div class="centered-container">
+  <div class="unifideLandingLogo">
+
+  </div>
+  <div class="unifide-contact">
+    <div class="unifide-name">Unifide</div>
+    <landing-social margin-top="24px"
+                            margin-bottom="48px"
+                            facebook="http://facebook.com/unifide"
+                            twitter="http://twitter.com/unifide"
+                            instagram="http://instagr.am/unifide"
+                            github="http://github.com/unifide-io"
+                            youtube="https://www.youtube.com/channel/UCozPZb3HDV959i-ygcQaNAw">
+                          </landing-social>
+    <div class="recruit">
+      <paper-button on-tap="recruit" raised>Join Unifide</paper-button>
+    </div>
+  </div>
+  <div class="copyright">© 2017 by Unifide Technologies Inc.</div>
+</div>

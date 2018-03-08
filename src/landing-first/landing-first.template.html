@@ -1,0 +1,40 @@
+<style>
+  :host{
+    color:#fff;
+
+
+    display:block;
+    height: 100vh;
+    text-align: center;
+
+  }
+
+  .unifideLandingLogo{
+    width: 256px;
+    height: auto;
+    margin:0px;
+    margin-top:8vh;
+  }
+  .app-name{
+    margin:2vh auto 4vh;
+
+    font-size:64px;
+  }
+  .landing-slogan{
+    margin:0 auto 4vh;
+  }
+  unifide-landing-social{
+    margin:0;
+  }
+</style>
+<img class="unifideLandingLogo" src="[[landingLogo]]">
+<h1 class="app-name" style="width:[[appNameWidth]];left:[[appNameLeft]]">[[appName]]</h1>
+<h2 class="landing-slogan">[[landingSlogan]]</h2>
+<landing-social margin-top="48px"
+                        margin-bottom=""
+                        facebook="[[facebook]]"
+                        twitter="[[twitter]]"
+                        instagram="[[instagram]]"
+                        github="[[github]]"
+                        youtube="[[youtube]]">
+</landing-social>

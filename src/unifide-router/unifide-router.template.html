@@ -1,0 +1,184 @@
+<style>
+
+  :host{
+    display: block;
+    margin: 0;
+    font-family: 'Nunito';
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height:100vh;
+    width:100%;
+  }
+
+  app-header {
+    display: block;
+    @apply --layout-fixed-top;
+    color: #fff;
+    background-color:#f44336;
+    --app-header-shadow: {
+    box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
+    }
+    z-index: 10;
+  }
+  }
+  a {
+    color: #fff;
+  }
+  iron-pages{
+    padding-top: 64px;
+  }
+  .centered-container {
+    margin-top: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .landing-layout {
+    margin-top: 64px;
+    display: block;
+  }
+  #recruit{
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+    position:fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  app-header {
+  --app-header-shadow: {
+    box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
+  };
+}
+  #recruit paper-card{
+    max-width:512px;
+    padding: 16px;
+  }
+  #recruit h1{
+    margin:0;
+    font-family: 'Montserrat';
+  }
+  #recruit p{
+    margin-bottom: 16px;
+    margin-top: 32px;
+    font-family: 'Nunito';
+  }
+  #recruit paper-checkbox{
+    margin: 16px 0;
+  }
+  #recruit .card-actions{
+    padding:16px 0 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  #recruit paper-button{
+    margin: 0;
+  }
+  #recruit .recruitFeatures{
+    display: flex;
+  }
+  #recruit .recruitFeatures paper-checkbox{
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  @media(max-width: 799px) {
+    :host{
+      padding-bottom: 8px;
+    }
+    landing-about{
+      padding:16px 0px 64px;
+
+
+    }
+    landing-footer{
+      display:flex;
+      justify-content: space-between;
+    }
+    #about-layer{
+      width:100%;
+    }
+    .about-content.first{
+      padding:0px;
+    }
+  }
+
+</style>
+<app-drawer-layout>
+  <app-header-layout elevation="1">
+    <app-header condenses reveals effects="waterfall">
+      <app-toolbar>
+        <div main-title>Unifide</div>
+        <paper-icon-button icon="power-settings-new" on-tap="recruit"></paper-icon-button>
+      </app-toolbar>
+    </app-header>
+    <div class="landing-layout">
+      <landing-first social-links="{{socialLinks}}"></landing-first>
+
+      <landing-services></landing-services>
+
+      <landing-speech></landing-speech>
+
+      <landing-photos></landing-photos>
+
+      <landing-about></landing-about>
+
+      <landing-centerfold></landing-centerfold>
+      <!-- TODO: fix landing-recruit. seems like iron-overlay-backdrop needs to be converted to es6-->
+      <landing-footer social-links="{{socialLinks}}"></landing-footer>
+
+    </div>
+  </app-header-layout>
+
+</app-drawer-layout>
+
+<unifide-window id="recruit">
+  <paper-card>
+    <iron-form id="recruitForm">
+      <form onsubmit="alert('submit!');return false">
+        <h1>Unifide Newsletter</h1>
+        <div class="card-content">
+
+          <p>Sign up for our newsletter and we'll update you when we push new releases and have events!</p>
+          <paper-input required label="Name" value="{{recruitName}}" error-message="Please enter your name."></paper-input>
+          <paper-input required label="Email" value="{{recruitEmail}}" auto-validate pattern='(\w*)[@](\w*)[\.](\w*)' error-message="Please enter a valid email." ></paper-input>
+          <div class="recruitFeatures">
+            <paper-checkbox value="{{productUpdates}}">Product Updates</paper-checkbox>
+            <paper-checkbox value="{{unifideEvents}}">Unifide Events</paper-checkbox>
+          </div>
+
+          <paper-checkbox checked="{{agreedToEULA}}">I Agree to allow Unifide to email me.</paper-checkbox>
+        </div>
+
+        <div class="card-actions">
+          <div class="horizontal justified">
+            <paper-button on-tap="getRecruited" disabled="{{!agreedToEULA}}">Sign Up</paper-button>
+            <paper-button on-tap="close">Cancel</paper-button>
+          </div>
+        </div>
+
+      </form>
+    </iron-form>
+  </paper-card>
+</unifide-window>
+<script>
+  router.$.recruitForm.addEventListener('iron-form-submit', function(event) {
+    db.collection("mailingList").add({
+        name: router.recruitName,
+        email: router.recruitEmail,
+        productUpdates: router.productUpdates,
+        unifideEvents: router.unifideEvents,
+
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+        router.recruit();
+
+    })
+  });
+  router.$.recruit.addEventListener('click', function(event) {
+    if(event.target.id == 'recruit'){
+      router.recruit();
+    }
+  });
+</script>

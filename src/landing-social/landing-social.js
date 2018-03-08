@@ -1,8 +1,9 @@
-import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import {Element} from '@polymer/polymer/polymer-element.js';
 import * as view from './landing-social.template.html';
+import '../unifide-icons/unifide-icons.js'
 
 
-export class UnifideLandingSocial extends PolymerElement {
+export class LandingSocial extends Element {
     constructor() {
         super();
     }
@@ -39,3 +40,4 @@ export class UnifideLandingSocial extends PolymerElement {
     }
 
 }
+customElements.define('landing-social', LandingSocial);
