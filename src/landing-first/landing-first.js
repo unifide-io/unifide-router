@@ -29,8 +29,11 @@ export class LandingFirst extends Element {
           },
           socialLinks: {
             type:Array,
-            value: [ "facebook.com", "twitter.com", "instagram.com","youtube.com","github.com/unifide-io" ]
+            observer: '_updateSocialLinks',
+            notify: true,
+            reflectToAttribute: true,
           },
+        
         };
     }
 
@@ -38,12 +41,7 @@ export class LandingFirst extends Element {
         super();
         //(<any>this).appNameWidth = '150px';
         //(<any>this).appNameLeft = (window.innerWidth/2)-75+'px';
-        console.log();
-        this.facebook = this.socialLinks[0];
-        this.twitter = this.socialLinks[1];
-        this.instagram = this.socialLinks[2];
-        this.youtube = this.socialLinks[3];
-        this.github = this.socialLinks[4];
+
     }
 
     static get template() {

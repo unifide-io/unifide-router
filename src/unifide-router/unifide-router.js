@@ -38,7 +38,7 @@ class UnifideRouter extends PolymerElement {
         socialLinks: {
           type:Array,
           notify: true,
-          observer: '_getSocialLinks',
+          reflectToAttribute: true,
 
         },
         landingBackground: {
@@ -59,7 +59,7 @@ class UnifideRouter extends PolymerElement {
           observer: '_isRecruiting',
           reflectToAttribute: true,
           value: false,
-          value: false
+
         },
         recruitName: {
           type: String,
@@ -78,6 +78,18 @@ class UnifideRouter extends PolymerElement {
   constructor() {
     super();
     document.body.style.backgroundImage = 'url(\''+router.landingBackground+'\')';
+    var docRef = db.collection("unifideRouter").doc("socialLinks");
+
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            router.socialLinks = doc.data();
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
 
   }
 
@@ -110,20 +122,7 @@ class UnifideRouter extends PolymerElement {
 
   }
   _getSocialLinks(){
-    var docRef = db.collection("unifideRouter").doc("socialLinks");
 
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-            this.socialLinks = doc.data();
-            console.log(this.socialLinks);
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
   }
 
 
