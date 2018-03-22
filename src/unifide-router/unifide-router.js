@@ -1,7 +1,6 @@
 //Import Polymer
 import {Element as PolymerElement} from "@polymer/polymer/polymer-element.js"
-export const html = (strings, ...values) => strings[0]
-+ values.map((v, i) => v + strings[i+1]).join('');
+export const html = (strings, ...values) => strings[0] + values.map((v, i) => v + strings[i+1]).join('');
 //Import HTML
 import * as view from './unifide-router.template.html'
 

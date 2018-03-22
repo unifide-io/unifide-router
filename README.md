@@ -18,6 +18,8 @@ import './app-toolbar/app-toolbar.js'
 import './app-box/app-box.js'
 ```
 
+Next you'll need to add the firebase config file. This should be in `/config.js` and include the apikey, authdomain, etc.
+
 ## Run a development server
 
 `npm run start`

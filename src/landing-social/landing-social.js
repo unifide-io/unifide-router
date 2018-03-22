@@ -10,6 +10,13 @@ export class LandingSocial extends Element {
 
     static get properties() {
         return {
+          socialLinks: {
+            type:Array,
+            notify: true,
+            reflectToAttribute: true,
+            observer: '_splitSocialLinks'
+
+          },
           facebook: {
             type: String
           },
@@ -30,6 +37,10 @@ export class LandingSocial extends Element {
           },
           marginBottom: {
             type: String
+          },
+          test: {
+            type: String,
+            data: 'test'
           }
 
         };
@@ -37,6 +48,24 @@ export class LandingSocial extends Element {
 
     static get template() {
         return view;
+    }
+    _splitSocialLinks(socialLinks){
+      var links = this.socialLinks.links;
+      var selector = '(http:\/\/)\w*.*';
+      var i;
+      for (i = 0; i < links.length; i++) {
+          if (links[i].includes("facebook")){
+            this.facebook = links[i]
+          } else if (links[i].includes("twitter")){
+            this.twitter = links[i]
+          } else if (links[i].includes("instagram")){
+            this.instagram = links[i]
+          } else if (links[i].includes("youtube")){
+            this.youtube = links[i]
+          } else if (links[i].includes("github")){
+            this.github = links[i]
+          }
+      }
     }
 
 }

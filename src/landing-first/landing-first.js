@@ -29,11 +29,11 @@ export class LandingFirst extends Element {
           },
           socialLinks: {
             type:Array,
-            observer: '_updateSocialLinks',
+            observer: '',
             notify: true,
             reflectToAttribute: true,
           },
-        
+
         };
     }
 
