@@ -17,11 +17,11 @@
     color: #fff;
     background-color:#f44336;
     --app-header-shadow: {
-    box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
     }
     z-index: 10;
   }
-  }
+
   a {
     color: #fff;
   }
@@ -115,13 +115,9 @@
     <div class="landing-layout">
       <landing-first social-links="{{socialLinks}}"></landing-first>
 
-      <landing-services></landing-services>
-
       <landing-speech></landing-speech>
 
-      <landing-photos></landing-photos>
-
-      <landing-about></landing-about>
+      <landing-services></landing-services>
 
       <landing-centerfold></landing-centerfold>
       <!-- TODO: fix landing-recruit. seems like iron-overlay-backdrop needs to be converted to es6-->

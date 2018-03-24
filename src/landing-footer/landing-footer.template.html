@@ -67,11 +67,16 @@ float:left;
     width: 256px;
     height: 256px;
     margin: 0 32px 0 0;
-    float:left;
+    float: left;
 
   }
   .copyright{
     float:left;
+    font-size: 12px;
+  }
+  .copyright iron-icon{
+    width:12px;
+    color: #f44336;
   }
   .recruit{
     margin: 30px 0 0;
@@ -103,17 +108,10 @@ float:left;
   </div>
   <div class="unifide-contact">
     <div class="unifide-name">Unifide</div>
-    <landing-social margin-top="24px"
-                            margin-bottom="48px"
-                            facebook="http://facebook.com/unifide"
-                            twitter="http://twitter.com/unifide"
-                            instagram="http://instagr.am/unifide"
-                            github="http://github.com/unifide-io"
-                            youtube="https://www.youtube.com/channel/UCozPZb3HDV959i-ygcQaNAw">
-                          </landing-social>
+    <landing-social margin-top="24px" margin-bottom="48px" social-links="[[socialLinks]]"></landing-social>
     <div class="recruit">
       <paper-button on-tap="recruit" raised>Join Unifide</paper-button>
     </div>
   </div>
-  <div class="copyright">© 2017 by Unifide Technologies Inc.</div>
+  <div class="copyright">Made with <iron-icon icon="favorite"></iron-icon> in San Francisco. © 2018 Unifide Technologies.</div>
 </div>

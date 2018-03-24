@@ -2,6 +2,7 @@ import { Element as PolymerElement, html } from '@polymer/polymer/polymer-elemen
 import * as view from './landing-footer.template.html';
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-button/paper-button.js';
+import '@polymer/iron-icons/iron-icons.js';
 import '../landing-social/landing-social.js';
 import '../unifide-window/unifide-window.js';
 
